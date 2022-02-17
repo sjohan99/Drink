@@ -5,13 +5,16 @@ public class Drink {
     private int dailyGoalAmount;
     private int consumedToday;
     private int drinkSize;
+    private String measurement;
     private String notificationInterval;
     private int notificationCooldownMinutes;
 
-    public Drink(int dailyGoalAmount, int consumedToday, int drinkSize) {
+
+    public Drink(int dailyGoalAmount, int consumedToday, int drinkSize, String measurement) {
         this.dailyGoalAmount = dailyGoalAmount;
         this.consumedToday = consumedToday;
         this.drinkSize = drinkSize;
+        this.measurement = measurement;
         this.notificationInterval = "08:00-22:00";
         this.notificationCooldownMinutes = 120;
     }
@@ -34,6 +37,10 @@ public class Drink {
 
     public void drink(int ml) {
         this.consumedToday += ml;
+    }
+
+    public int getConsumedToday() {
+        return consumedToday;
     }
 
     public void drink() {
