@@ -9,7 +9,7 @@
         android:id="@+id/navigation_home"
         android:name="com.example.drink.ui.drink.DrinkFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_drink" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
