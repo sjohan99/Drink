@@ -43,6 +43,10 @@ public class Drink {
         return consumedToday;
     }
 
+    public String getConsumedTodayStr() {
+        return Integer.toString(consumedToday);
+    }
+
     public void drink() {
         this.consumedToday += drinkSize;
     }
