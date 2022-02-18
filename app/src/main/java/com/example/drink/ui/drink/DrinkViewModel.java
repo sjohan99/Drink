@@ -25,4 +25,8 @@ public class DrinkViewModel extends ViewModel {
         consumed.setValue(drink.getConsumedTodayStr());
     }
 
+    public void updateDrinkAmount(int ml) {
+        drink.setDrinkSize(ml);
+    }
+
 }
