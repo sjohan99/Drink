@@ -1,19 +1,15 @@
 package com.example.drink.ui.settings;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
 import com.example.drink.R;
 import com.example.drink.ui.drink.DrinkViewModel;
-
-import java.util.Map;
+import com.takisoft.preferencex.PreferenceFragmentCompat;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 
@@ -23,7 +19,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     private DrinkViewModel drinkViewModel;
 
     @Override
-    public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
+    public void onCreatePreferencesFix(@Nullable Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.fragment_settings, rootKey);
         sharedPref = PreferenceManager.getDefaultSharedPreferences(requireActivity());
         editor = sharedPref.edit();
@@ -31,8 +27,11 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences prefs, String s) {
-                if (fragmentAttached() && s.equals(getString(R.string.saved_drink_amount))) {
+                if (fragmentAttached() && s.equals(getString(R.string.saved_drink_size))) {
                     drinkViewModel.updateDrinkAmount(Integer.parseInt(prefs.getString(s, "200")));
+                }
+                if (fragmentAttached() && s.equals(getString(R.string.saved_daily_goal))) {
+                    drinkViewModel.updateGoal(Integer.parseInt(prefs.getString(s, "2500")));
                 }
             }
         };

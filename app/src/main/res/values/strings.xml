@@ -5,4 +5,5 @@
     <string name="title_notifications">Notifications</string>
     <string name="drink">Drink!</string>
     <string name="glass_size_setting_expl">Amount added when pressing "Drink!"</string>
+    <string name="daily_goal_setting_expl">Your daily water intake goal</string>
 </resources>

@@ -19,11 +19,11 @@ public class Drink {
         this.notificationCooldownMinutes = 120;
     }
 
-    public int getDailyGoalAmount() {
+    public int getDailyGoal() {
         return dailyGoalAmount;
     }
 
-    public void setDailyGoalAmount(int ml) {
+    public void setDailyGoal(int ml) {
         this.dailyGoalAmount = ml;
     }
 
@@ -45,6 +45,10 @@ public class Drink {
 
     public String getConsumedTodayStr() {
         return Integer.toString(consumedToday);
+    }
+
+    public String getDailyGoalStr() {
+        return Integer.toString(getDailyGoal());
     }
 
     public void drink() {

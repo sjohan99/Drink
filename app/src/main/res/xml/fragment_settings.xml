@@ -6,12 +6,24 @@
 
     <SwitchPreferenceCompat
         app:key="notifications"
-        app:title="Enable message notifications"/>
+        app:title="Enable message notifications"
+        app:icon="@drawable/ic_notifications_white_24"/>
 
     <EditTextPreference
-        app:key="@string/saved_drink_amount"
+        app:key="@string/saved_daily_goal"
+        app:title="Daily goal"
+        app:summary="@string/daily_goal_setting_expl"
+        app:icon="@drawable/ic_star_white_24"
+        android:inputType="number"
+        />
+
+    <EditTextPreference
+        app:key="@string/saved_drink_size"
         app:title="Glass size"
         app:summary="@string/glass_size_setting_expl"
+        app:icon="@drawable/ic_glass_24dp"
+        android:inputType="number"
         />
+
 
 </PreferenceScreen>

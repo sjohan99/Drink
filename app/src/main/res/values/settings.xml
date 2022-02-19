@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="saved_drink_amount">drink_amount</string>
+    <string name="saved_drink_size">drink_size</string>
+    <string name="saved_daily_goal">daily_goal</string>
+    <string name="saved_notification_interval">notification_interval</string>
+    <string name="saved_consumed_today">consumed_today</string>
 </resources>
