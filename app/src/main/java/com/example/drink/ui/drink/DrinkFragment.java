@@ -1,9 +1,6 @@
 package com.example.drink.ui.drink;
 
-import static android.content.ContentValues.TAG;
-
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.drink.R;
 import com.example.drink.databinding.FragmentDrinkBinding;
-import com.example.drink.ui.settings.PreferenceRepository;
+import com.example.drink.persistency.preferences.PreferenceRepository;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class DrinkFragment extends Fragment {
@@ -37,7 +34,7 @@ public class DrinkFragment extends Fragment {
         binding = FragmentDrinkBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         repo = new PreferenceRepository(requireActivity());
-        drinkViewModel.initializeDrink(repo.getAll());
+        drinkViewModel.initializeDrink(repo.getAll(), repo);
 
         consumed = binding.drunkenTodayText;
         goal = binding.goalAmountText;
@@ -62,8 +59,7 @@ public class DrinkFragment extends Fragment {
         drinkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                drinkViewModel.drink();
-                Log.d(TAG, "onClick: " + repo.getDrinkAmount());
+                drinkViewModel.drink(repo);
             }
         });
 
@@ -72,6 +68,7 @@ public class DrinkFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        drinkViewModel.saveConsumed(repo);
         super.onDestroyView();
         binding = null;
     }

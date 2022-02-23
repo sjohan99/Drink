@@ -43,6 +43,10 @@ public class Drink {
         return consumedToday;
     }
 
+    public void setConsumedToday(int ml) {
+        this.consumedToday = ml;
+    }
+
     public String getConsumedTodayStr() {
         return Integer.toString(consumedToday);
     }

@@ -4,4 +4,5 @@
     <string name="saved_daily_goal">daily_goal</string>
     <string name="saved_notification_interval">notification_interval</string>
     <string name="saved_consumed_today">consumed_today</string>
+    <string name="saved_last_consumed">last_consumed</string>
 </resources>
